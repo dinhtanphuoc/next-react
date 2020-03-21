@@ -1,21 +1,39 @@
-import Head from 'next/head';
-import PropTypes from 'prop-types';
-
-const Layout = props => (
-  <body>
-    <Head>
-      <title>Next React</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    </Head>
-    <div> { props.children } </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+const Header = props => (
+  <div className="container-fluid bg-dark text-white py-1 d-none d-lg-block">
+    <div className="container">
+      <div className="d-flex justify-content-between">
+        <div className="">
+          <span>
+            <i className="fas fa-map-marker-alt" aria-hidden="true" />
+            <span className="pl-1">
+              <small>
+                01 Lê Thanh Nghị, Phường Hòa Cường Bắc, Quận Hải Châu, Thành Phố Đà Nẵng
+              </small>
+            </span>
+          </span>
+        </div>
+        <div className="">
+          <span className="pl-4">
+            <i className="fas fa-envelope" aria-hidden="true" />
+            <span className="pl-1">
+              <small className="font-weight-bold">
+                phuocdt.mmo@gmail.com
+              </small>
+            </span>
+          </span>
+          <span className="pl-4">
+            <i className="fas fa-phone-volume" aria-hidden="true" />
+            <span className="pl-1">
+              <small>
+                Hotline:
+              </small>
+              <span className="text-danger font-weight-bold"> (+84 934 895 060 )</span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
-Layout.propTypes = {
-  children: PropTypes.element.isRequired
-}
-
-export default Layout;
+export default Header;

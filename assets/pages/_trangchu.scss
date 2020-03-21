@@ -1,3 +1,25 @@
-.demo {
-  font-size: 50px;
+.border-custom-sdt {
+  height: 100px;
+  width: 600px;
+  border: 2px solid;
+  margin: 30px auto 15px;
+  border-style: dashed;
+  .custom-sdt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 50px;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .border-custom-sdt {
+    width: 300px;
+    height: 70px;
+    .custom-sdt {
+      font-size: 40px;
+    }
+  }
 }
