@@ -2,7 +2,7 @@ import { Layout } from '../components/layouts';
 import Carousel from '../components/common/Carousel';
 import GioiThieu from '../components/trangchu/GioiThieu';
 import DichVu from '../components/common/DichVu';
-// import CamNang from '../components/common/CamNang';
+import CamNang from '../components/common/CamNang';
 
 const TrangChu = () => (
   <Layout>
@@ -10,7 +10,7 @@ const TrangChu = () => (
       <Carousel />
       <GioiThieu />
       <DichVu />
-      {/* <CamNang /> */}
+      <CamNang />
       <div className="container-fluid bg-info text-white py-4">
         <h2 className="text-uppercase text-center">Bạn không hiểu về kế toán thuế?</h2>
         <h5 className="text-center">Doanh nghiệp phải hiểu rõ Kế Toán Thuế – Người am hiểu Thuế Kế toán mới chính là người thành công</h5>
