@@ -1,8 +1,9 @@
+import { connect } from 'react-redux';
 import Link from 'next/link';
 import Router from 'next/router';
 import { useRouter } from 'next/router';
 import logo from '../../assets/images/logo-ketoangiakhang.png';
-import { map, isArray } from 'lodash';
+import { map, isArray, isEmpty } from 'lodash';
 import classnames from 'classnames';
 
 const handleRedirect = () => {
@@ -10,9 +11,11 @@ const handleRedirect = () => {
 }
 
 const Navbar = props => {
+
   const router = useRouter();
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light container-fluid bg-light text-dark py-3 sticky-top">
+    <nav className="navbar navbar-expand-xl navbar-light container-fluid bg-light text-dark py-3 sticky-top">
       <div className="container">
         <div className="d-flex justify-content-between w-100">
           <div className="logo cursor-pointer">
@@ -24,7 +27,7 @@ const Navbar = props => {
           </div>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul className="navbar-nav font-weight-bold cursor-pointer text-uppercase">
-              { isArray(dataNavBar) && map(dataNavBar, (item) => (
+              { isArray(props.dataNavBar) && map(props.dataNavBar, (item) => (
                 <li className={classnames('nav-item', {
                   active: (router.pathname.lastIndexOf(item.link) === 0 && router.pathname === item.link
                     ) || (router.pathname.lastIndexOf(item.link) === 0 && item.link !== '/'
@@ -33,6 +36,7 @@ const Navbar = props => {
                   <Link href={item.link}>
                     <span className="nav-link color-navbar">{item.name}</span>
                   </Link>
+                  { !isEmpty(item.children) && <DropdownContent children={item.children} router={router} /> }
                 </li>
               ))}
             </ul>
@@ -43,35 +47,29 @@ const Navbar = props => {
   )
 };
 
-export default Navbar;
+const DropdownContent = props => (
+  <div className={classnames('dropdown-content', {
+    'width-540': props.children.length >= 10,
+    'width-250': props.children.length < 10,
+  })}>
+    { isArray(props.children) && map(props.children, (item) => (
+      <div className={classnames('width-250 d-inline-block nav-children-item', {
+        'm-10': props.children.length >= 10,
+        active: props.router.asPath === item.link
+      })} key={item.link}>
+        <Link href={item.link}>
+          <span className="nav-link color-navbar">{item.name}</span>
+        </Link>
+      </div>
+    ))}
+  </div>
+);
 
-const dataNavBar = [
-  {
-    link: '/',
-    name: 'Trang chủ'
-  },
-  {
-    link: '/gioi-thieu',
-    name: 'Giới thiệu'
-  },
-  {
-    link: '/dich-vu',
-    name: 'Dịch vụ'
-  },
-  {
-    link: '/bang-gia',
-    name: 'Bảng giá'
-  },
-  {
-    link: '/tu-van',
-    name: 'Tư vấn'
-  },
-  {
-    link: '/cam-nang',
-    name: 'Cẩm nang'
-  },
-  {
-    link: '/lien-he',
-    name: 'Liên hệ'
-  }
-];
+const mapStateToProps = state => ({
+  dataNavBar: state.setting.menuNavBar
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Navbar);

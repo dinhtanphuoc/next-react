@@ -1,12 +1,13 @@
+import React from 'react';
 import { Layout } from '../components/layouts';
 import Carousel from '../components/common/Carousel';
 import GioiThieu from '../components/trangchu/GioiThieu';
 import DichVu from '../components/common/DichVu';
 import CamNang from '../components/common/CamNang';
 
-const TrangChu = () => (
-  <Layout>
-    <div>
+const TrangChu = (props) => {
+  return (
+    <Layout>
       <Carousel />
       <GioiThieu />
       <DichVu />
@@ -19,8 +20,8 @@ const TrangChu = () => (
           <span className="custom-sdt">0934 895 060</span>
         </div>
       </div>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export default TrangChu;

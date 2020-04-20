@@ -1,14 +1,15 @@
+import { connect } from 'react-redux';
+import { get } from 'lodash';
+
 const Header = props => (
-  <div className="container-fluid bg-dark text-white py-1 d-none d-lg-block">
+  <div className="container-fluid bg-dark text-white py-1 d-none d-xl-block">
     <div className="container">
       <div className="d-flex justify-content-between">
         <div className="">
           <span>
             <i className="fas fa-map-marker-alt" aria-hidden="true" />
             <span className="pl-1">
-              <small>
-                01 Lê Thanh Nghị, Phường Hòa Cường Bắc, Quận Hải Châu, Thành Phố Đà Nẵng
-              </small>
+              <small>{ get(props, 'thongTin.diaChi', '') }</small>
             </span>
           </span>
         </div>
@@ -16,9 +17,7 @@ const Header = props => (
           <span className="pl-4">
             <i className="fas fa-envelope" aria-hidden="true" />
             <span className="pl-1">
-              <small className="font-weight-bold">
-                phuocdt.mmo@gmail.com
-              </small>
+              <small className="font-weight-bold">{ get(props, 'thongTin.email', '') }</small>
             </span>
           </span>
           <span className="pl-4">
@@ -27,7 +26,7 @@ const Header = props => (
               <small>
                 Hotline:
               </small>
-              <span className="text-danger font-weight-bold"> (+84 934 895 060 )</span>
+              <span className="text-danger font-weight-bold">({ get(props, 'thongTin.soDienThoai', '') })</span>
             </span>
           </span>
         </div>
@@ -36,4 +35,11 @@ const Header = props => (
   </div>
 );
 
-export default Header;
+const mapStateToProps = state => ({
+  thongTin: state.setting.thongTin
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Header);
