@@ -12,7 +12,7 @@
 }
 
 li.nav-item {
-  font-size: 14px;
+  font-size: 0.875rem;
   .dropdown-content {
     display: none;
   }
@@ -27,9 +27,10 @@ li.nav-item {
 .dropdown-content {
   position: absolute;
   background-color: #e9ecef;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-transform: none;
   font-weight: 500;
+  overflow: hidden;
   .nav-children-item {
     padding-left: 15px;
     border-bottom: 1px solid #adb5bd;
@@ -39,6 +40,9 @@ li.nav-item {
   }
   .nav-children-item:last-child {
     border-bottom: none;
+  }
+  .dropdown-content-custom {
+    margin-bottom: -1px;
   }
 }
 

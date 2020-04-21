@@ -10,7 +10,7 @@ const handleRedirectItem = (link) => {
   Router.push({ pathname: link })
 }
 
-const CamNang = () => (
+const CP_CamNang = () => (
   <div className="container-fluid">
     <div className="container pt-4 pb-4">
       <div
@@ -42,12 +42,12 @@ const CamNang = () => (
   </div>
 )
 
-export default CamNang;
+export default CP_CamNang;
 
 const dataCamNang = [
   {
     link: '/cam-nang/1',
-    image: require('../../assets/images/y-nghia-logo.jpg'),
+    image: require('../assets/images/y-nghia-logo.jpg'),
     title: 'Quy định về hóa đơn điện tử',
     content: `Hóa đơn điện tử là một hình thức thanh toán điện tử.
       Phương pháp lập hoá đơn điện tử được sử dụng bởi các đối tác kinh doanh,
@@ -59,7 +59,7 @@ const dataCamNang = [
   },
   {
     link: '/cam-nang/2',
-    image: require('../../assets/images/thiet-ke-letterhead-cho-cong-ty.jpg'),
+    image: require('../assets/images/thiet-ke-letterhead-cho-cong-ty.jpg'),
     title: '10 bí quyết thiết kế letterhead cho công ty',
     content: `Letterhead là một trong những ấn phẩm không thể thiếu khi bắt đầu xây dựng hệ thống nhận diện thương hiệu,
       được dùng để trao đổi thông tin giữa công ty và khách hàng với nhau. Hôm nay,
@@ -67,7 +67,7 @@ const dataCamNang = [
   },
   {
     link: '/cam-nang/2',
-    image: require('../../assets/images/y-nghia-logo.jpg'),
+    image: require('../assets/images/y-nghia-logo.jpg'),
     title: 'Thông điệp logo qua các thương hiệu nổi tiếng',
     content: `Nếu tên thương hiệu được thay đổi thành những câu chữ khác nhau,
       bạn sẽ vẫn nhận diện được bao nhiêu trong số những thương hiệu đó?

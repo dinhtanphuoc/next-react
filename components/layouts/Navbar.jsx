@@ -52,16 +52,18 @@ const DropdownContent = props => (
     'width-540': props.children.length >= 10,
     'width-250': props.children.length < 10,
   })}>
-    { isArray(props.children) && map(props.children, (item) => (
-      <div className={classnames('width-250 d-inline-block nav-children-item', {
-        'm-10': props.children.length >= 10,
-        active: props.router.asPath === item.link
-      })} key={item.link}>
-        <Link href={item.link}>
-          <span className="nav-link color-navbar">{item.name}</span>
-        </Link>
-      </div>
-    ))}
+    <div className="dropdown-content-custom">
+      { isArray(props.children) && map(props.children, (item) => (
+        <div className={classnames('width-250 d-inline-block nav-children-item', {
+          'm-10': props.children.length >= 10,
+          active: props.router.asPath === item.link
+        })} key={item.link}>
+          <Link href={item.link}>
+            <span className="nav-link color-navbar">{item.name}</span>
+          </Link>
+        </div>
+      ))}
+    </div>
   </div>
 );
 
