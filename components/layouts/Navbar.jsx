@@ -25,7 +25,7 @@ const Navbar = props => {
               onClick={() => handleRedirect()}
             />
           </div>
-          <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav font-weight-bold cursor-pointer text-uppercase">
               { isArray(props.dataNavBar) && map(props.dataNavBar, (item) => (
                 <li className={classnames('nav-item', {
@@ -41,6 +41,9 @@ const Navbar = props => {
               ))}
             </ul>
           </div>
+          <button className="navbar-toggler" type="button" data-target="#navbarNav" aria-controls="navbarNav" data-toggle="collapse">
+            <span className="navbar-toggler-icon" />
+          </button>
         </div>
       </div>
     </nav>
@@ -55,11 +58,14 @@ const DropdownContent = props => (
     <div className="dropdown-content-custom">
       { isArray(props.children) && map(props.children, (item) => (
         <div className={classnames('width-250 d-inline-block nav-children-item', {
-          'm-10': props.children.length >= 10,
+          'm-rl-10': props.children.length >= 10,
           active: props.router.asPath === item.link
         })} key={item.link}>
           <Link href={item.link}>
-            <span className="nav-link color-navbar">{item.name}</span>
+            <span className="nav-link color-navbar">
+              <i className="fas fa-arrow-right size-icon-13 pr-2" aria-hidden="true" />
+              {item.name}
+            </span>
           </Link>
         </div>
       ))}

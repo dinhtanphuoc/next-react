@@ -53,3 +53,16 @@ li.nav-item {
 .color-navbar {
   color: #495057!important;
 }
+
+.navbar-toggler {
+  height: 45px;
+}
+
+.show, .collapsing {
+  position: absolute;
+  top: 77px;
+  left: 0;
+  background-color: #fff;
+  width: 100vw;
+  height: calc(100vh - 77px);
+}

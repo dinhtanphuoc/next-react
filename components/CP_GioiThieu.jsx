@@ -39,7 +39,7 @@ const CP_GioiThieu = props => (
 )
 
 const mapStateToProps = state => ({
-  gioiThieu: state.setting.gioiThieu
+  gioiThieu: state.trangchu.gioiThieu
 });
 
 export default connect(

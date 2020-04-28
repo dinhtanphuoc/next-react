@@ -7,16 +7,20 @@ const CP_Slider = props => (
     <ol className="carousel-indicators">
       { map(get(props, 'dataSlider', []), (item, index) => (
         <li
+          key={index}
           data-slide-to={index}
           className={classnames({'active': item.active})}
         />
       ))}
     </ol>
     <div className="carousel-inner">
-      { map(get(props, 'dataSlider', []), item => (
-        <div className={classnames('carousel-item', {
-          'active': item.active
-        })}>
+      { map(get(props, 'dataSlider', []), (item, index) => (
+        <div
+          key={index}
+          className={classnames('carousel-item', {
+            'active': item.active
+          })
+        }>
           <div
             className="image-slider"
             style={{ backgroundImage: `url(${item.image})`}}
@@ -35,7 +39,7 @@ const CP_Slider = props => (
       data-slide="prev"
     >
       <span className="carousel-control-prev-icon" aria-hidden="true" />
-      <span class="sr-only">Previous</span>
+      <span className="sr-only">Previous</span>
     </a>
     <a
       className="carousel-control-next"
@@ -44,13 +48,13 @@ const CP_Slider = props => (
       data-slide="next"
     >
       <span className="carousel-control-next-icon" aria-hidden="true" />
-      <span class="sr-only">Next</span>
+      <span className="sr-only">Next</span>
     </a>
   </div>
 );
 
 const mapStateToProps = state => ({
-  dataSlider: state.setting.dataSlider
+  dataSlider: state.trangchu.dataSlider
 });
 
 export default connect(

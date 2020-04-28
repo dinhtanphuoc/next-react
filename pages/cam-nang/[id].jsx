@@ -1,11 +1,11 @@
 import { Layout } from '../../components/layouts';
 
-const DichVuItem = () => (
+const CamNangItem = () => (
   <Layout>
     <div className="container hv-100">
-      dich vu item
+      cam nang item
     </div>
   </Layout>
 )
 
-export default DichVuItem
+export default CamNangItem
