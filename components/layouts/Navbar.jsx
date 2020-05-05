@@ -6,8 +6,17 @@ import logo from '../../assets/images/logo-ketoangiakhang.png';
 import { map, isArray, isEmpty } from 'lodash';
 import classnames from 'classnames';
 
-const handleRedirect = () => {
-  Router.push({ pathname: '/' })
+const handleRedirect = (data) => {
+
+  if (!data) {
+    return Router.push({ pathname: '/' })
+  }
+
+  if (!data.children) {
+    return Router.push({ pathname: data.link })
+  }
+
+  return;
 }
 
 const Navbar = props => {
@@ -33,9 +42,9 @@ const Navbar = props => {
                     ) || (router.pathname.lastIndexOf(item.link) === 0 && item.link !== '/'
                     ) || (router.pathname === item.link)
                 })} key={item.link}>
-                  <Link href={item.link}>
+                  <div onClick={() => handleRedirect(item)}>
                     <span className="nav-link color-navbar">{item.name}</span>
-                  </Link>
+                  </div>
                   { !isEmpty(item.children) && <DropdownContent children={item.children} router={router} /> }
                 </li>
               ))}
@@ -52,13 +61,14 @@ const Navbar = props => {
 
 const DropdownContent = props => (
   <div className={classnames('dropdown-content', {
-    'width-540': props.children.length >= 10,
+    'width-640': props.children.length >= 10,
     'width-250': props.children.length < 10,
   })}>
     <div className="dropdown-content-custom">
       { isArray(props.children) && map(props.children, (item) => (
-        <div className={classnames('width-250 d-inline-block nav-children-item', {
-          'm-rl-10': props.children.length >= 10,
+        <div className={classnames('d-inline-block nav-children-item', {
+          'm-rl-10 width-300': props.children.length >= 10,
+          'width-250': props.children.length < 10,
           active: props.router.asPath === item.link
         })} key={item.link}>
           <Link href={item.link}>

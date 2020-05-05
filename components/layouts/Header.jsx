@@ -28,7 +28,7 @@ const Header = props => (
                 <small>
                   Hotline:
                 </small>
-                <span className="text-danger font-weight-bold"> ({ get(props, 'thongTin.soDienThoai', '') })</span>
+                <span className="text-danger font-weight-bold"> { get(props, 'thongTin.soDienThoai', '') } </span>
               </span>
             </span>
           </div>

@@ -1,4 +1,5 @@
 import { Layout } from '../components/layouts';
+import Sidebar from '../components/layouts/Sidebar';
 
 const createMarkup = () => {
   return {__html: data };
@@ -7,7 +8,14 @@ const createMarkup = () => {
 const GioiThieu = () => (
   <Layout>
     <div className="container hv-100 py-4">
-      <div dangerouslySetInnerHTML={createMarkup()} />
+      <div className="row">
+        <div className="col-xl-9">
+          <div dangerouslySetInnerHTML={createMarkup()} />
+        </div>
+        <div className="col-xl-3 d-none d-xl-block">
+          <Sidebar />
+        </div>
+      </div>
     </div>
   </Layout>
 )
