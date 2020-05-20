@@ -61,13 +61,13 @@ const Navbar = props => {
 
 const DropdownContent = props => (
   <div className={classnames('dropdown-content', {
-    'width-640': props.children.length >= 10,
+    'width-840': props.children.length >= 10,
     'width-250': props.children.length < 10,
   })}>
     <div className="dropdown-content-custom">
       { isArray(props.children) && map(props.children, (item) => (
         <div className={classnames('d-inline-block nav-children-item', {
-          'm-rl-10 width-300': props.children.length >= 10,
+          'm-rl-10 width-400': props.children.length >= 10,
           'width-250': props.children.length < 10,
           active: props.router.asPath === item.link
         })} key={item.link}>

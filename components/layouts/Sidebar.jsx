@@ -10,7 +10,7 @@ const handleRedirectItem = (link) => {
 const Siderbar = props => (
   <>
     <div className="bg-light py-3 px-3">
-      <h4 className="font-weight-bold pb-2">Dịch vụ</h4>
+      <h5 className="font-weight-bold">Dịch vụ</h5>
       { isArray(props.dsDichVu.children) && map(props.dsDichVu.children, (item, index) =>
         <h6
           key={index}
@@ -22,9 +22,8 @@ const Siderbar = props => (
         </h6>
       )}
     </div>
-
     <div className="bg-light py-3 px-3 mt-4">
-    <h4 className="font-weight-bold pb-2">Cẩm nang</h4>
+    <h5 className="font-weight-bold">Cẩm nang</h5>
     { isArray(props.dsCamNang.children) && map(props.dsCamNang.children, (item, index) =>
       <h6
         key={index}

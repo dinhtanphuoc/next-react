@@ -31,6 +31,8 @@ li.nav-item {
   text-transform: none;
   font-weight: 500;
   overflow: hidden;
+  left: 50%;
+  transform: translateX(-33%);
   .nav-children-item {
     padding-left: 15px;
     border-bottom: 1px solid #adb5bd;
